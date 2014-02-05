@@ -5,7 +5,7 @@ ifeq (, $(ARCH))
 endif
 SYSTEM = $(shell uname -s)
 ASMFLAGS =
-DFLAGS = -O2 -g
+DFLAGS = -O2 -g -Wall
 
 # ARCH related flags
 ifeq ($(ARCH), x86_64)
@@ -51,8 +51,8 @@ LD = gcc
 YASM = yasm
 ASMOBJS = cpu.o
 OBJS = interface_main.o encmain.o bitstream.o cabac.o config.o context.o debug.o encoder.o filter.o inter.o intra.o nal.o picture.o rdo.o sao.o search.o transform.o extras/getopt.o
-PROG  = ./kvazaar
-PROGS = $(PROG)
+PROG  = kvazaar
+PROGS = $(PROG) $(PROG).exe
 
 all: $(PROGS)
 .PHONY: all clean
